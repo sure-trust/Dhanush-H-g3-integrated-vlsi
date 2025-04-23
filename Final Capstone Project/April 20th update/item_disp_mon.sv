@@ -1,4 +1,4 @@
-/////////////////////////item_disp_mon////////////////////////////////
+/////////////////////////item_disp_mon//////////////////////////////// (updated line no 63)
 
 class item_disp_mon extends uvm_monitor;
   // factory registration
@@ -47,11 +47,11 @@ class item_disp_mon extends uvm_monitor;
        `uvm_error("ITEM_DISP_MON","unable to access general intf config db")
      
   endfunction
-  
-  // Run phase    
       
+  // Run phase    
+     
   virtual task run_phase(uvm_phase phase);
-    
+ 
     forever begin
       //Wait for 2 positive clock edges before sampling data for timing mismatches
      repeat(2)@(posedge gif.clk);
@@ -59,11 +59,14 @@ class item_disp_mon extends uvm_monitor;
       tm.item_dispense_valid = dif.item_dispense_valid;
       tm.item_dispense = dif.item_dispense;
       tm.currency_change=dif.currency_change;
-      `uvm_info("ITEM_DISP_MON",$sformatf("item_select_valid:%b || item_select:%d || currency_change :%d",tm.item_dispense_valid,tm.item_dispense,tm.currency_change),UVM_NONE)
+      
+      `uvm_info("ITEM_DISP_MON",$sformatf("item_dispense_valid:%b || item_dispense:%d || currency_change :%d",tm.item_dispense_valid,tm.item_dispense,tm.currency_change),UVM_NONE)
+      
       item_disp_send.write(tm);// to scoreboard
       
     end
     
   endtask
+
   
 endclass
