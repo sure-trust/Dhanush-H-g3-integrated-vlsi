@@ -3,6 +3,8 @@ This is my link of EDA playground
 
 https://edaplayground.com/x/UtJc
 
+Dispense part alone not able to do properly so now focussing on that part and item_cfg[8] is success but don't know item_cfg[5] is not success so focussing on that too.
+
 */
 
 /*  My Testbench code  */
